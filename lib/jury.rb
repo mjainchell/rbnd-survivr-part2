@@ -52,7 +52,7 @@ class Jury
 
     end.first
     puts "##########################################"
-    puts "The winner is #{the_winner[0]} winner jksdhfksdjhfksdhfkjsdhfkjhasdkjfhsadkjfhkjsadhfkjasdhfkjsdhfkjsdhfkjsdfh"
+    puts "The winner is #{the_winner[0]}"
     puts "##########################################"
     return the_winner[0]
   end

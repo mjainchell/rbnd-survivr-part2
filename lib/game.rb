@@ -18,12 +18,24 @@ class Game
     @tribes.clear
   end
 
-  def merge(tribe_merge)
-    @new_tribe = Tribe.new(:tribe => tribe_merge, :member => [])
-    @new_tribe.members << Tribe.members
-    return @new_tribe
+  def member_merge
+    new_tribe_members = []
+    @tribes.each {|tribe| new_tribe_members << tribe.members}
+    new_tribe_members.flatten!
 
   end
+
+  def merge(tribe_merge)
+    @new_tribe = Tribe.new({name: tribe_merge, members: member_merge })
+    @tribes.clear
+    add_tribe(@new_tribe)
+    return @new_tribe
+  end
+
+  def individual_immunity_challenge
+    member_merge.sample
+  end
+
 
 
 end
